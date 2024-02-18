@@ -38,8 +38,8 @@ body {
   font-family: var(--font-body);
   font-weight: 400;
   line-height: var(--body-line-height);
-  background-color: var(--gray-dark-01);
-  color: var(--white-default);
+  background-color: var(--white-default);
+  color: var(--gray-dark-01);
 }
 
 img {

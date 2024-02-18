@@ -1,10 +1,16 @@
 import { GlobalStyles } from "./GlobalStyles"
+import { Outlet } from "react-router-dom"
+import Navbar from "./layout/Navbar"
+import Footer from "./layout/Footer"
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <h1>Ola mundo</h1>
+
+      <Navbar />
+      <Outlet />
+      <Footer />
     </>
   )
 }
