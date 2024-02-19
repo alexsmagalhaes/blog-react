@@ -5,12 +5,14 @@ import App from "@/App";
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import NotFound from "@/pages/404";
+import Register from "@/pages/register";
+import Login from "@/pages/login";
 
 export const router = createBrowserRouter([
    {
       path: "/",
       element: <App />,
-      errorElement: <NotFound/>,
+      errorElement: <NotFound />,
       children: [
          {
             path: "/",
@@ -18,6 +20,12 @@ export const router = createBrowserRouter([
          }, {
             path: "/about",
             element: <About />
+         },{
+            path: "/register",
+            element: <Register />
+         },{
+            path: "/login",
+            element: <Login />
          },
       ]
    },

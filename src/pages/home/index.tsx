@@ -1,7 +1,11 @@
+import { HomeStyled } from "./styles";
+
 export default function Home() {
    return (
-      <>
-         <h1>Home</h1>
-      </>
+      <HomeStyled>
+         <div className="container-medium">
+            <h1>Home</h1>
+         </div>
+      </HomeStyled>
    )
 }

@@ -2,8 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 :root {
-  --font-heading: "Arial", sans-serif;
-  --font-body: "Arial", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
   --body-line-height: 1.5;
   --heading-line-height: 1.4;
 
@@ -46,12 +46,17 @@ img {
   max-width: 100%;
 }
 
+ul{
+  list-style-type: none;
+}
+
 a{
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
-button{
+button, input{
   font-family: inherit;
 }
 
