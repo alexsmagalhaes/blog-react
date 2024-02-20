@@ -1,6 +1,6 @@
-import { FormEvent, ReactNode, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useState } from "react";
 import { RegisterStyled } from "./styles";
-import { cadastrarUsuario } from "@/hooks/useAuthentication";
+import { useAuthentication } from "@/hooks/useAuthentication";
 
 export default function Register(): ReactNode {
 
@@ -11,19 +11,25 @@ export default function Register(): ReactNode {
 
    const [error, setError] = useState<string | null>(null)
 
+   //register hook
+   const { createUser, error: authError } = useAuthentication();
+
+   useEffect(() => {
+      if (authError) setError(authError);
+   }, [authError])
+
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setError(null)
 
-      const user = { name, email, password }
-      console.log(user)
+      // const user = { name, email, password }
 
       if (password !== repeatPassword) {
          setError('Senhas diferentes')
       } else {
-         setError(null)
-         console.log('cadastrado')
-         cadastrarUsuario(email, password);
+         // cadastrarUsuario('alexmag6282@gmail.com', '12345678');
+         await createUser({ name, email, password });
+         setError(authError)
       }
    }
 
@@ -52,6 +58,7 @@ export default function Register(): ReactNode {
                      placeholder="Nome do usuário"
                      value={email}
                      onChange={(e) => setEmail(e.target.value)}
+                     autoComplete="username"
                   />
                </label>
                <label>
@@ -64,6 +71,7 @@ export default function Register(): ReactNode {
                      value={password}
                      onChange={(e) => setPassword(e.target.value)}
                      minLength={8}
+                     autoComplete="new-password"
                   />
                </label>
                <label>
@@ -76,6 +84,7 @@ export default function Register(): ReactNode {
                      value={repeatPassword}
                      onChange={(e) => setRepeatPassword(e.target.value)}
                      minLength={8}
+                     autoComplete="new-password"
                   />
                </label>
 
