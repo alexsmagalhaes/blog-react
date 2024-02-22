@@ -1,8 +1,13 @@
 import { ReactNode } from "react";
 import { NavbarStyled } from "./styles";
 import { NavLink } from "react-router-dom";
+import { useAuthValue } from "@/context/AuthContext";
 
 export default function Navbar(): ReactNode {
+
+   const user = useAuthValue();
+   console.log(user)
+
    return (
       <NavbarStyled>
          <div className="container-medium">
@@ -10,8 +15,12 @@ export default function Navbar(): ReactNode {
             <ul>
                <li><NavLink to={"/"}>Home/ Início</NavLink></li>
                <li><NavLink to={"/about"}>Sobre</NavLink></li>
-               <li><NavLink to={"/login"}>Login</NavLink></li>
-               <li><NavLink to={"/register"}>Cadastrar</NavLink></li>
+               {!user &&
+                  <>
+                     <li><NavLink to={"/login"}>Login</NavLink></li>
+                     <li><NavLink to={"/register"}>Cadastrar</NavLink></li>
+                  </>
+               }
             </ul>
          </div>
       </NavbarStyled>

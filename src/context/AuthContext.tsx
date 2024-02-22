@@ -1,11 +1,14 @@
+import { User } from "firebase/auth";
 import { ReactNode, createContext, useContext } from "react";
 
+export type userPatternProps = User | null | undefined
+
 interface AuthProviderProps {
-   children: any,
-   value: any
+   children: ReactNode,
+   value: userPatternProps
 }
 
-const AuthContext = createContext<string | null>('');
+const AuthContext = createContext<userPatternProps>(undefined);
 
 export function AuthProvider({ children, value }: AuthProviderProps): ReactNode {
    return (
@@ -16,5 +19,5 @@ export function AuthProvider({ children, value }: AuthProviderProps): ReactNode 
 }
 
 export function useAuthValue() {
-   return useContext(AuthContext);
+   return useContext<userPatternProps>(AuthContext);
 }

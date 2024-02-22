@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, updateProfile, UserCredential } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export function useAuthentication() {
