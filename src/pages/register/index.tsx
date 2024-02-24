@@ -27,12 +27,11 @@ export default function Register(): ReactNode {
       if (password !== repeatPassword) {
          setError('Senhas diferentes')
       } else {
-         // cadastrarUsuario('alexmag6282@gmail.com', '12345678');
          await createUser({ name, email, password });
          setError(authError)
       }
    }
-
+   
    return (
       <RegisterStyled>
          <div className="container-medium">

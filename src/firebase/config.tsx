@@ -1,9 +1,8 @@
 export const firebaseConfig = {
-   apiKey: "AIzaSyD9ipnGG6y8tJbZUKReLgEtuzjbwlUE6Fw",
+   apiKey: `${import.meta.env.VITE_API_KEY}`,
+   appId: `${import.meta.env.API_ID}`,
    authDomain: "blog-react-01.firebaseapp.com",
    projectId: "blog-react-01",
    storageBucket: "blog-react-01.appspot.com",
    messagingSenderId: "591467900873",
-   appId: "1:591467900873:web:6dd0a6294a2a312b9dc218"
 };
-
