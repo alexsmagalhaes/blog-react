@@ -6,7 +6,6 @@ import { useAuthValue } from "@/context/AuthContext";
 export default function Navbar(): ReactNode {
 
    const user = useAuthValue();
-   console.log(user)
 
    return (
       <NavbarStyled>
@@ -19,6 +18,12 @@ export default function Navbar(): ReactNode {
                   <>
                      <li><NavLink to={"/login"}>Login</NavLink></li>
                      <li><NavLink to={"/register"}>Cadastrar</NavLink></li>
+                  </>
+               }
+               {user &&
+                  <>
+                     <li><NavLink to={"/posts/create"}>Novo Post</NavLink></li>
+                     <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
                   </>
                }
             </ul>
